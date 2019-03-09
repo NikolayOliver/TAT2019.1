@@ -13,10 +13,6 @@ namespace Task_1_SplitLine
     class SplitLine
     {
         /// <summary>
-        /// arguments from the command line
-        /// </summary>
-        string[] args;
-        /// <summary>
         /// outing list of all subsequences
         /// </summary>
         List<string> listSubstring;
@@ -31,7 +27,6 @@ namespace Task_1_SplitLine
         string substring;
         public SplitLine(string[] args)
         {
-            this.args = args;
             listSubstring = new List<string>();
             argsInLine = new StringBuilder();
             // connect in one string spliting ' '
