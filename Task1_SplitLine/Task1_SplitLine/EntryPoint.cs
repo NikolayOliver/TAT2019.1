@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace Task_1_SplitLine
 {
@@ -10,10 +7,11 @@ namespace Task_1_SplitLine
     /// and which outputs to the console all subsequences (two or more symbols)
     /// in which there are no two consecutive repeated symbols
     /// </summary>
+    /// <returns> 0 if all is good</returns>
+    /// <returns> 1 if args[0] consits of less 2 symbols</returns>
+    /// <returns> 2 if there are unforeseen errors</returns>
     class EntryPoint
     {
-
-        static List<string> listSubstring;
         /// <summary>
         /// Entry Point of programm
         /// </summary>
@@ -22,13 +20,8 @@ namespace Task_1_SplitLine
         {
             try
             {
-                if (args[0].Length < 2 && args.Length < 2)
-                {
-                    throw new FormatException();
-                }
-                var splitLine = new SplitLine(args);
-                listSubstring = splitLine.ListSubstringFromLine();
-                foreach (string substr in listSubstring)
+                var splitLine = new SplitLine(args[0]);
+                foreach (string substr in splitLine.ListSubstringFromLine();)
                 {
                     Console.WriteLine(substr);
                 }
