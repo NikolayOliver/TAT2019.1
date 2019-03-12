@@ -20,6 +20,10 @@ namespace Task_1_SplitLine
         {
             try
             {
+                if (String.IsNullOrEmpty(args[0])
+                {
+                    throw new FormatException();
+                }
                 var splitLine = new SplitLine(args[0]);
                 foreach (string substr in splitLine.ListSubstringFromLine();)
                 {
