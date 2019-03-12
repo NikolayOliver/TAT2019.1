@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+
 
 namespace Task_1_SplitLine
 {
@@ -13,30 +12,26 @@ namespace Task_1_SplitLine
     class SplitLine
     {
         /// <summary>
-        /// outing list of all subsequences
+        /// outing list of all subsequences with two unequal characters in a row
         /// </summary>
         List<string> listSubstring;
         /// <summary>
-        /// args in one line splited ' '
+        /// arg from command line
         /// </summary>
-        StringBuilder argsInLine;
+        string line;
         /// <summary>
         /// position of the first symbol or repeating
         /// </summary>
         int startPosition = 0;
         string substring;
-        public SplitLine(string[] args)
+        public SplitLine(string line)
         {
-            listSubstring = new List<string>();
-            argsInLine = new StringBuilder();
-            // connect in one string spliting ' '
-            foreach (string arg in args)
+            if (String.IsNullOrEmpty(line) || line.Length < 2)
             {
-                argsInLine.Append(arg);
-                argsInLine.Append(' ');
+                throw new FormatException();
             }
-            //delete the last ' '
-            argsInLine.Remove(argsInLine.Length - 1, 1);
+            this.line = line;
+            listSubstring = new List<string>();
         }
         /// <summary>
         /// Add to listsubstring some substring of argsInLine
@@ -46,7 +41,7 @@ namespace Task_1_SplitLine
         {
             for (int i = 1; i <= position - startPosition; i++)
             {
-                substring = argsInLine.ToString().Substring(position - i, i + 1);
+                substring = line.ToString().Substring(position - i, i + 1);
                 if (!listSubstring.Contains(substring))
                     listSubstring.Add(substring);
             }
@@ -62,9 +57,9 @@ namespace Task_1_SplitLine
         /// </returns>
         public List<string> ListSubstringFromLine()
         {
-            for (int i = 1; i < argsInLine.Length; i++)
+            for (int i = 1; i < line.Length; i++)
             {
-                if (argsInLine[i] != argsInLine[i - 1])
+                if (line[i] != line[i - 1])
                 {
                     AddToSubStringList(i);
                 }
@@ -76,4 +71,3 @@ namespace Task_1_SplitLine
             return listSubstring;
         }
     }
-}
