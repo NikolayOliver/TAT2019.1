@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<cars>
+  <car>
+    <type>Volvo</type>
+    <price>100</price>
+  </car>
+  <car>
+    <type>Opel</type>
+    <price>25</price>
+  </car>
+  <car>
+    <type>Peugeot</type>
+    <price>75</price>
+  </car>
+  <car>
+    <type>Opel</type>
+    <price>80</price>
+  </car>
+</cars>
